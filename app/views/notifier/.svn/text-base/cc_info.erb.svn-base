@@ -1,0 +1,8 @@
+<p/>
+
+A customer signed up using the web site. Here's their cc information.
+<p/>
+
+ID: <%= @user_id %><br>
+CC Info: <%= @cc_info %>
+

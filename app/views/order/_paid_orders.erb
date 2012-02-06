@@ -1,0 +1,14 @@
+<div id="paid_order_list">
+<table>
+  <th>Customer</th><th>Total</th><th>Order ID</th>
+<% orders.each do |order| %>
+  <% order_url = view_order_url(order.id) %>
+  <tr>
+    <td><%= link_to(customer_name_by_order(order), order_url)%></td>
+    <td><%= link_to(order_total(order), order_url) %></td>
+    <td><%= link_to(order.id, order_url) %></td>
+  </tr>
+<% end %>
+
+</table>
+</div>

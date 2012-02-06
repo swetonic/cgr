@@ -1,0 +1,24 @@
+<ul id="nav">
+<li><%= render :partial => 'shared/logo_wide' %></li>
+<li><%= link_to_unless_current('Home', :controller => 'home') %></li>
+<li><%= link_to_unless_current('Services', :controller => 'home', :action => 'services') %></li>
+<li><%= link_to_unless_current('Pricing', :controller => 'pricing') %></li>
+<li><%= link_to_unless_current('FAQ', :controller => 'faq') %></li>
+
+<% if !@is_local %>
+  <li><%= link_to_unless_current('Schedule A Pick Up', 
+            :controller => 'home', :action => 'pickup') %></li>
+  <li><%= link_to_unless_current('My Account',
+                :controller => 'home', :action => 'my_account') %></li>
+<% end %>
+<li><%= link_to_unless_current('Contact Us', :controller => 'home', 
+    :action => 'contact') %>
+</li>
+<li><br><span class="howto">
+<%= link_to_unless_current('How To Join <br>the No-PERC <br>Revolution Today!', 
+      url_for(:controller => 'user', :action => 'howto_join')) %> 
+</span></li>
+
+<li><br><%= link_to("What's PERC?", noperc_url()) %></li>
+
+</ul>

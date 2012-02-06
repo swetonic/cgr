@@ -1,0 +1,79 @@
+
+<div id="signup_form">
+
+<table>
+<% form_for :user, :url => {:action => :create} do |form| %>
+  <tr><td><b>Email Address</b></td>
+  <td><%= form.text_field(:email_address, :size => '30', :maxlength => '127')%></td>
+  <td>*</td></tr>
+  <tr><td colspan="2" class="note_text">Share your email? We wouldn't dare.</td></tr>
+
+  <tr><td><b>First Name</b></td>
+  <td><%= form.text_field(:first_name, :size => '30', :maxlength => '127')%></td>
+  <td>*</td></tr>
+
+  <tr><td><b>Last Name</b></td>
+  <td><%= form.text_field(:last_name, :size => '30', :maxlength => '127')%></td>
+  <td>*</td></tr>
+
+  <tr><td><b>Password</b></td>
+  <td><%= form.password_field(:password, :size => '30', :maxlength => '127')%>
+    </td><td>*</td>
+  </tr>
+
+  <tr><td>&nbsp;</td></tr>
+
+  <tr><td><b>Address 1</b></td>
+  <td><%= form.text_field(:address1, :size => '30', :maxlength => '255')%></td>
+  <td>*</td></tr>
+
+  <tr><td><b>Address 2</b></td>
+  <td><%= form.text_field(:address2, :size => '30', :maxlength => '255')%></td>
+  </tr>
+
+  <tr><td><b>City</b></td>
+  <td><%= form.text_field(:city, :size => '30', :maxlength => '127')%></td>
+  <td>*</td></tr>
+
+  <tr><td><b>State</b></td>
+  <td><%= form.text_field(:state, :size => '5', :value => 'WA', :maxlength => '31')%>
+  *
+
+  <b>Zip Code</b>
+  <%= form.text_field(:zip, :size => '8', :maxlength => '15')%> * </td>
+  </tr>
+
+  <tr><td><b>Phone</b></td>
+  <td><%= form.text_field(:phone, :size => '30', :maxlength => '31')%></td>
+  <td>*</td></tr>
+
+  <!--<tr><td><b>Alternate Phone</b></td>
+  <td><%= form.text_field(:alternate_phone, :size => '30', :maxlength => '31')%></td>
+  </tr>-->
+
+  <tr><td>&nbsp;</td></tr>
+
+  <tr><td><b>Credit Card Number</b></td>
+    <td><%= text_field(:cc, :info, :size => 20, :maxlength => 19) %> *</td>
+  </tr>
+
+  <tr><td><b>Expiration (MM/YY)</b></td>
+    <td><%= text_field(:cc, :expiration, :size => 20, :maxlength => 19) %> *</td>
+  </tr>
+
+  <tr><td><b>CVV code (3 digit number)</b></td>
+    <td><%= text_field(:cc, :cvv, :size => 20, :maxlength => 19) %> *</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="note_text">Note: include a credit card if you want to use our online tools for delivery.</td>
+  </tr>
+  <tr></tr>
+  <tr></tr>
+  <tr><td><%= submit_tag('Sign Up', :onclick => "$('loading').show();") %></td></tr>
+  
+<% end %>
+</table>
+<div id="loading" style="display: none"><%= image_tag('loading.gif') %></div>
+</div>
+

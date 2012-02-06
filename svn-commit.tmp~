@@ -1,0 +1,17 @@
+
+--This line, and those below, will be ignored--
+
+M    app/models/notifier.rb
+A    app/models/cc_record.rb
+M    app/controllers/user_controller.rb
+M    app/controllers/application_controller.rb
+M    app/controllers/home_controller.rb
+A    app/views/notifier/schedule_pickup.erb
+A    app/views/home/pickup.erb
+M    app/views/home/_nav.erb
+A    app/views/home/schedule_pickup.erb
+M    app/views/user/_signup_form.html.erb
+M    config/database.yml
+M    db/schema.rb
+A    db/migrate/11_create_cc_records.rb
+A    lib/password.rb

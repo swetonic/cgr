@@ -1,0 +1,36 @@
+
+<% if @cancelling %>
+    <% if @cancelled %>
+        <h3>Your pickup was cancelled.</h3>
+    <% else %>
+        <h3>There was an error cancelling your pickup.</h3>
+        <% unless @error.nil? %>
+            <%= @error %>
+        <% end %>
+    <% end %>
+<% else %>
+    <% if @pickup.nil? %>
+        <h3>Pickup not found.</h3>
+    <% else %>
+
+        <h3>Cancel Pickup</h3>
+        Would you like to cancel your pickup?<br>
+        <%= button_to('Yes, Cancel the Pickup', :action => 'cancel_pickup', :id => @pickup.id, :cancel => 1) %>
+        <br>
+    <% end %>
+<% end %>
+
+<% unless @pickup.nil? %>
+    <b>Details</b><br>
+
+    <%= @pickup.user.first_name %> <%= @pickup.user.last_name %><br>
+    <%= @pickup.user.address1 %><br>
+    <% if @pickup.user.address2.length > 0 %>
+        <%= @pickup.user.address2 %><br>
+    <% end %>
+    <%= @pickup.user.city %>, WA <%= @pickup.user.zip %><br><br>
+    <b>Pickup Date</b><br>
+    <%= @pickup.pickup_date.mon %>/<%= @pickup.pickup_date.day %>/<%= @pickup.pickup_date.year %>
+<% end %>
+
+

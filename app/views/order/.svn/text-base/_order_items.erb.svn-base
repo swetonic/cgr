@@ -1,0 +1,46 @@
+<% total = 0.0 %>
+<table>
+  <th>Item</th><th>Qty</th><th>Unit Price</th><th>Subtotal</th>
+<% order_items.each do |item| %>
+  <tr>
+    <td><%= item.description%> <%= item.cleaning_category_item.name %></td>
+    <td><%= item.quantity%></td>
+    <td align="right"><%= (sprintf("%.2f", item.unit_price * item.discount)) %>
+      <% if item.discount != 1 %>
+        (<%= discount_text(item.discount) %>)
+      <% end %>  
+    </td>
+    <% item_total = item.quantity * item.unit_price * item.discount %>
+    <% total += item_total %>
+    <td align="right"><%= sprintf("$%.2f", item_total) %>
+    </td>
+  </tr>
+<% end %>
+  <tr>
+    <td colspan=2></td><td align="right"><b>Subtotal</b></td>
+    <td align="right"><b><%= sprintf("$%.2f", total) %></b></td>
+  </tr>
+
+  <tr>
+    <% tax = total * tax_rate() %>
+    <td colspan=2></td><td align="right"><b>Tax</b></td>
+    <td align="right"><b><%= sprintf("$%.2f", tax) %></b></td>
+  </tr>
+
+  <%= render :partial => 'order/order_discounts', 
+        :locals => {:order => order,
+        :order_discounts => order.nil? ? [] : order.order_discounts} %>
+
+
+  <tr>
+    <% discount = order.nil? ? 0.0 : order_discount_total(order.id) %>
+    <% grand_total = total + tax - discount %>
+    <td colspan=2></td><td align="right"><b>Total</b></td>
+    <td align="right"><b><%= sprintf("$%.2f", grand_total) %></b></td>
+  </tr>
+</table>
+
+
+
+
+

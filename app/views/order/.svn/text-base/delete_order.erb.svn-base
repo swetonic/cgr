@@ -1,0 +1,6 @@
+
+<% if @error.nil? %>
+  The order was deleted.
+<% else %>
+  <%= @error %>
+<% end %>

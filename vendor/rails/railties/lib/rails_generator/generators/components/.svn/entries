@@ -1,0 +1,67 @@
+10
+
+dir
+397
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr/trunk/vendor/rails/railties/lib/rails_generator/generators/components
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr
+
+
+
+2009-07-03T22:28:02.972908Z
+60
+jazzbas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9a0c08a6-b572-489f-922d-4569c8c2a73c
+
+helper
+dir
+
+model
+dir
+
+performance_test
+dir
+
+scaffold
+dir
+
+integration_test
+dir
+
+metal
+dir
+
+controller
+dir
+
+observer
+dir
+
+resource
+dir
+
+mailer
+dir
+
+migration
+dir
+
+session_migration
+dir
+
+plugin
+dir
+

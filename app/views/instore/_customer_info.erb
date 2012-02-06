@@ -1,0 +1,30 @@
+<div id="customer_info">
+<table>
+  <tr><td>Name</td><td><%= customer_info.first_name %> <%= customer_info.last_name %></td></tr>
+  <tr><td>Email Address</td><td><%= customer_info.email_address %></td></tr>
+  <tr><td>Address 1</td><td><%= customer_info.address1 %></td></tr>
+  <tr><td>Address 2</td><td><%= customer_info.address2 %></td></tr>
+  <tr><td>City</td><td><%= customer_info.city %></td></tr>
+  <tr><td>State</td><td><%= customer_info.state %></td></tr>
+  <tr><td>Zip</td><td><%= customer_info.zip %></td></tr>
+  <tr><td>Phone</td><td><%= customer_info.phone %></td></tr>
+  <tr><td>Alternate Phone</td><td><%= customer_info.alternate_phone %></td></tr>
+  <tr><td>Birthday</td><td><%= customer_info.birthday %></td></tr>
+  <tr><td>Referred By</td><td><%= customer_info.referred_by %></td></tr>
+  <tr><td>Shirt Laundry</td><td><%= customer_info.shirt_laundry %></td></tr>
+  <tr><td>Dry Cleaning</td><td><%= customer_info.dry_cleaning %></td></tr>
+  <tr><td>Laundry</td><td><%= customer_info.laundry %></td></tr>
+  <tr><td>Delivery Customer?</td><td><%= customer_info.delivery_customer? ? 'yes' : 'no' %></td></tr>
+  <tr><td>Heard about us:</td><td><%= customer_info.howd_you_hear %></td></tr>
+  <tr><td>No PERC points:</td>
+  <td>
+    <% str = ''
+        begin
+        str = no_perc_points_for_user(customer_info.id) 
+        rescue
+        end
+      %>
+    <%= str %>  
+  </td></tr>
+</table>
+</div>

@@ -1,0 +1,104 @@
+# Filters added to this controller apply to all controllers in the application.
+# Likewise, all the methods added will be available for all controllers.
+
+class HomeController < ApplicationController 
+  
+  layout CURRENT_LAYOUT
+  
+  #before_filter :check_admin
+
+  caches_page :index, :pickup 
+  caches_page :online_coupon, :noperc
+
+  def when
+  end	
+  
+  def index
+    if @is_local and not session[:is_admin] 
+      redirect_to :controller => 'admin', :action => 'login'
+    elsif @is_local and session[:is_admin]
+      redirect_to :controller => 'instore', :action => 'index'
+    end
+  end
+
+  def contact
+    
+  end
+  
+  def pickup
+    @logged_in = session[:logged_in]
+    @user = session[:logged_in_user]
+    @delivery_days = nil
+    unless @user.nil?
+      if DeliveryArea.zipcode_exists?(@user.zip)
+        @delivery_days = DeliveryArea.delivery_days(@user.zip)
+      end
+    end
+    
+    @error = session[:login_error]
+  end
+
+  def forgot_password
+  end  
+  
+  def online_coupon
+  end
+  
+  def send_password
+    @user = User.find_by_email(params['forgot_password']['email_address'])
+    @email_address = params['forgot_password']['email_address']
+
+    unless @user.nil?
+      pickup_url = render_to_string :inline => "<%= pickup_url()%>"
+      mail = Notifier.create_send_password(@user, pickup_url)  # => a tmail object
+      Notifier.deliver(mail)
+    end
+    
+  end
+  
+  def check_password
+    user = User.find_by_email(params['login']['email_address'])
+    unless user.nil?
+      if user.password == params['login']['password']
+        session[:logged_in] = true
+        session[:logged_in_user] = user
+      end
+    else
+      session[:login_error] = "#{params['login']['email_address']} wasn't found."
+    end
+    redirect_to :action => 'pickup'
+  end
+
+  def schedule_pickup
+    @user = User.find(params[:user_id])
+    unless @user.nil?
+
+      @delivery_days = nil
+      unless @user.nil?
+        if DeliveryArea.zipcode_exists?(@user.zip)
+          @delivery_days = DeliveryArea.delivery_days(@user.zip)
+
+          begin
+            Pickup.add_pickup(@user.id, @delivery_days)
+          rescue Exception => e
+          end
+          
+        end
+      end
+      
+      mail = Notifier.create_schedule_pickup(@user,
+          params[:login][:coupon_code])  # => a tmail object
+      Notifier.deliver(mail)
+    end
+  end
+  
+  
+end
+
+
+
+
+
+
+
+

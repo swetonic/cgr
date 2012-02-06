@@ -1,0 +1,22 @@
+
+<h1>Clean Green Revolution Services</h1>
+<div id="services">
+<table>
+<tr>
+<td>Dry Cleaning</td>
+</tr>
+<tr>
+<td>Shirt Laundry</td>
+</tr>
+<tr>
+<td>Wash and Fold Laundry</td>
+</tr>
+<tr>
+    <td>Alterations</td>
+</tr>
+<tr>
+<td><%= link_to('Price List', :controller => 'pricing') %></td>
+</tr>
+</table>
+</div>
+

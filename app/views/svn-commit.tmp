@@ -1,0 +1,4 @@
+using img tag instead of image_tag call
+--This line, and those below, will be ignored--
+
+M    shared/_logo_tall.rhtml

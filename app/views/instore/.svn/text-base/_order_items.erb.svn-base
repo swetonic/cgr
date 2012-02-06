@@ -1,0 +1,41 @@
+
+
+<% id = 0 %>
+<% for item in order_items %>
+  <% element_id = "item_#{item.object_id.to_s}" %>
+  <%# remove_item = "Element.remove($('#{element_id}'))" %>
+
+  <li id="<%=element_id%>">
+  
+  <% if show_remove %>
+    [<%= link_to_remote('Remove from Order', 
+            :url => {:controller => 'instore', :action => 'remove_item_from_order', 
+              :item => item, :element_id => element_id, 
+              :object_id => item.object_id.to_s}) %>]
+  <% end %>
+  
+  <%   category = ''
+       name = ''
+       if item[:category].nil? 
+         category = 'Custom'
+       else
+         category = item[:category].name
+       end
+       
+       unless item[:category_item].nil? 
+         name = item[:category_item].name
+       end
+    %>
+    
+  <% str = "  #{item[:quantity]} - #{category}: #{item[:description]} #{name} " %>
+  <% str += sprintf("$%.2f", item[:cost] * item[:discount]) %>
+  
+  <% if item[:discount] != 1 %>
+    <% str += " #{discount_text(item[:discount])}" %>
+  <% end %>
+  
+  <%= str %>
+  </li>
+  <% id += 1 %>
+<% end %>
+

@@ -1,0 +1,19 @@
+
+
+<% id = 0 %>
+<% order_items.each do |item| %>
+  <% element_id = "item_#{id}" %>
+  <%# remove_item = "Element.remove($('#{element_id}'))" %>
+
+  
+  <% str = "#{item.quantity} - #{item.cleaning_category_item.cleaning_category.name}: #{item.cleaning_category_item.name} #{item.description} " %>
+  <% str += sprintf("$%.2f", item.unit_price * item.discount) %>
+  
+  <% if item.discount != 1 %>
+    <% str += " #{discount_text(item.discount)}" %>
+  <% end %>
+  
+<%= str %><newline>
+  <% id += 1 %>
+<% end %>
+

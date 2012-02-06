@@ -1,0 +1,110 @@
+
+<div id="signup_form">
+
+<fieldset>
+<legend>Customer Information</legend>
+<table>
+<% form_for :user, :url => {:action => :create} do |form| %>
+  
+  <tr><td>
+  <table>
+    <tr><td>First Name</td>
+    <td><%= form.text_field(:first_name, :size => '30', :maxlength => '127')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Last Name</td>
+    <td><%= form.text_field(:last_name, :size => '30', :maxlength => '127')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Email Address</td>
+    <td><%= form.text_field(:email_address, :size => '30', :maxlength => '127')%></td>
+    </tr>
+
+
+    <tr><td>Address 1</td>
+    <td><%= form.text_field(:address1, :size => '30', :maxlength => '255')%></td>
+
+    <tr><td>Address 2</td>
+    <td><%= form.text_field(:address2, :size => '30', :maxlength => '255')%></td>
+    </tr>
+
+    <tr><td>City</td>
+    <td><%= form.text_field(:city, :size => '30', :maxlength => '127')%></td>
+
+    <tr><td>State</td>
+    <td><%= form.text_field(:state, :size => '5', :maxlength => '31')%>
+
+    Zip Code
+    <%= form.text_field(:zip, :size => '8', :maxlength => '15')%> </td>
+    </tr>
+
+    <tr><td>Phone</td>
+    <td><%= form.text_field(:phone, :size => '30', :maxlength => '31')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Alternate Phone</td>
+    <td><%= form.text_field(:alternate_phone, :size => '30', :maxlength => '31')%></td>
+    </tr>
+
+    <tr><td>Birthday</td>
+    <td><%= form.text_field(:birthday, :size => '30', :maxlength => '31')%></td>
+    </tr>
+
+    <tr><td>Referred By</td>
+    <td><%= form.text_field(:referred_by, :size => '30', :maxlength => '124')%></td>
+    </tr>
+  </table>
+  </td>
+  </tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+  <tr><td>
+  <fieldset>
+    <legend>Laundry/Dry Cleaning Preferences</legend>
+    <table>
+      <tr><td>Shirt Laundry</td>
+      <td><%= form.text_field(:shirt_laundry, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <tr><td>Dry Cleaning</td>
+      <td><%= form.text_field(:dry_cleaning, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <tr><td>Laundry</td>
+      <td><%= form.text_field(:laundry, :size => '30', :maxlength => '250')%></td>
+      </tr>
+    </table>
+  </fieldset>
+  </td></tr>
+
+  <tr><td>
+  <fieldset>
+    <legend>Miscellaneous</legend>
+    <table>
+      <tr><td>How'd you hear about us?</td>
+      <td><%= form.text_field(:howd_you_hear, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <% store = store_name() 
+         checked = ''
+         checked = 'CHECKED' if store == 'CGR Tangletown'
+       %> 
+      <tr><td><input id="user_delivery_customer" name="user[delivery_customer]" type="checkbox" <%= checked %> value="1" /> Delivery Customer </td>
+      </tr>
+    </table>
+  </fieldset>
+  </td></tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+  <tr><td><%= submit_tag('Create New Customer') %></td></tr>
+
+<% end %>
+</table>
+</fieldset>
+
+
+</div>
+

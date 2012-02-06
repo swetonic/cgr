@@ -1,0 +1,113 @@
+
+<div id="signup_form">
+
+<fieldset>
+<legend>Customer Information</legend>
+<table>
+<% form_for :user, :url => {:action => :update} do |form| %>
+  <%= hidden_field_tag('id', @user.id.to_s) %>
+  
+  <tr><td>
+  <table>
+    <tr><td>First Name</td>
+    <td><%= form.text_field(:first_name, :size => '30', :maxlength => '127')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Last Name</td>
+    <td><%= form.text_field(:last_name, :size => '30', :maxlength => '127')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Email Address</td>
+    <td><%= form.text_field(:email_address, :size => '30', :maxlength => '127')%></td>
+    </tr>
+
+
+    <tr><td>Address 1</td>
+    <td><%= form.text_field(:address1, :size => '30', :maxlength => '255')%></td>
+    </tr>
+
+    <tr><td>Address 2</td>
+    <td><%= form.text_field(:address2, :size => '30', :maxlength => '255')%></td>
+    </tr>
+
+    <tr><td>City</td>
+    <td><%= form.text_field(:city, :size => '30', :maxlength => '127')%></td>
+    </tr>
+
+    <tr><td>State</td>
+    <td><%= form.text_field(:state, :size => '5', :maxlength => '31')%>
+    
+
+    Zip Code
+    <%= form.text_field(:zip, :size => '8', :maxlength => '15')%></td>
+    </tr>
+
+    <tr><td>Phone</td>
+    <td><%= form.text_field(:phone, :size => '30', :maxlength => '31')%></td>
+    <td>*</td></tr>
+
+    <tr><td>Alternate Phone</td>
+    <td><%= form.text_field(:alternate_phone, :size => '30', :maxlength => '31')%></td>
+    </tr>
+
+    <tr><td>Birthday</td>
+    <td><%= form.text_field(:birthday, :size => '30', :maxlength => '31')%></td>
+    </tr>
+
+    <tr><td>Referred By</td>
+    <td><%= form.text_field(:referred_by, :size => '30', :maxlength => '124')%></td>
+    </tr>
+  </table>
+  </td>
+  </tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+  <tr><td>
+  <fieldset>
+    <legend>Laundry/Dry Cleaning Preferences</legend>
+    <table>
+      <tr><td>Shirt Laundry</td>
+      <td><%= form.text_field(:shirt_laundry, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <tr><td>Dry Cleaning</td>
+      <td><%= form.text_field(:dry_cleaning, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <tr><td>Laundry</td>
+      <td><%= form.text_field(:laundry, :size => '30', :maxlength => '250')%></td>
+      </tr>
+    </table>
+  </fieldset>
+  </td></tr>
+
+  <tr><td>
+  <fieldset>
+    <legend>Miscellaneous</legend>
+    <table>
+      <tr><td>How'd you hear about us?</td>
+      <td><%= form.text_field(:howd_you_hear, :size => '30', :maxlength => '250')%></td>
+      </tr>
+      <tr><td><%= form.check_box(:delivery_customer)%> Delivery Customer </td>
+      </tr>
+      <tr><td>No PERC Points</td>
+      <td><%= text_field_tag(:no_perc_points, @no_perc_points, :size => 3)%></td>
+      </tr>
+    </table>
+  </fieldset>
+  </td></tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+  <tr><td><%= submit_tag('Save Customer Information') %></td></tr>
+
+<% end %>
+</table>
+</fieldset>
+
+
+</div>
+

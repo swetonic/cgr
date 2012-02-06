@@ -1,0 +1,55 @@
+<div id="faq">
+
+<h1>Frequently Asked Questions</h1>
+<p>
+<%= render :partial => 'q' %> Just what is eco-friendly dry cleaning?
+<p>
+<%= render :partial => 'a' %> Over 90% of the dry cleaners in the country 
+use a toxic chemical called perchloroethylene, or "PERC." PERC has health 
+risks to workers and can contaminate nearby soil and ground water. 
+Clothes, after being cleaned with PERC, continue to off-gas PERC into your home. 
+Your clothes have a chemical smell; your house has a chemical smell. 
+
+<p>
+
+<%= render :partial => 'q' %> What makes your process so much greener?
+<p>
+<%= render :partial => 'a' %> We use a hydrocarbon-based solvent that is 
+odorless and has no known health hazard, and no known environmental hazard. 
+
+<p>
+
+<%= render :partial => 'q' %> But does it work? Is it safe for my clothes?
+<p>
+<%= render :partial => 'a' %> Yes, and yes! The hydrocarbon-based solvent 
+we use has been in use since 1994, and has proven to be safe on all fabrics and 
+tough on stains.
+<p>
+
+<%= render :partial => 'q' %> What else makes you so revolutionary?
+<p>
+<%= render :partial => 'a' %> We have looked at every step of the dry cleaning 
+process from start to finish to find opportunities to reduce, reuse, and recycle. 
+We limit the use of extra paper and packaging, and we promote recycling of your 
+hangers and bags. We even offer a premium service that returns your clothes to 
+you in reusable garment bags.
+<p>
+
+<%= render :partial => 'q' %> This sounds good, but is it expensive?
+<p>
+<%= render :partial => 'a' %> Our cleaning methods utilize tried and true 
+technology, unlike newer unproven technologies that are expensive and have an 
+unproven track record. That means we can deliver quality service at competitive 
+prices - a true value for your family.
+<p>
+
+<%= render :partial => 'q' %> Sounds great. How do I sign up?
+<p>
+<%= render :partial => 'a' %>Easy!  
+<%= link_to('You can signup online here', :controller => 'user', :action => 'signup') %>. Or, just call us at <b>206-708-4308</b>
+and a customer service representative will contact you to set up your service.
+
+</div>
+
+
+

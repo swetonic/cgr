@@ -1,0 +1,26 @@
+<table id="tbl_manage_perc_points">
+  <th>Customer</th><th>Points</th><th>Add Points</th><th>Redeem Hangers</th>
+<% @users_points.each do |user,points|%>
+  <tr><td><%= customer_name(user) %></td><td><%= points %></td>
+    <td valign="center"><% form_remote_tag(:url => url_for(:action => 'update_points')) do  %>
+      <%= text_field_tag('points', nil, :size => 3) %> 
+      <%= hidden_field_tag('user_id', user.id)%>
+      <%= submit_tag 'Add Points' %>
+      <% end %>
+    </td>
+
+    <td valign="center"><% form_remote_tag(:url => url_for(:action => 'redeem_hangers')) do  %>
+      <%= text_field_tag('hangers', nil, :size => 3) %> 
+      <%= hidden_field_tag('user_id', user.id)%>
+      <%= submit_tag 'Redeem Hangers' %>
+      <% end %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<p/>
+
+<div id="status">
+</div>

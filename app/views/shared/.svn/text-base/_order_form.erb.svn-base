@@ -1,0 +1,132 @@
+<b>Customer</b>: <%= @user.first_name %> <%= @user.last_name %> <p>
+<%= delivery_customer? ? 'Delivery ' : 'Local '%>Customer
+
+<br>
+<p>
+<% button_style = '' %>
+<% if @order_items_html.nil? %>
+  <% button_style = 'display: none;' %>
+<% end %>
+
+<% radio_buttons = ['Monday', 'Tuesday', 'Wednesday', 
+    'Thursday', 'Friday', 'Saturday'] %>
+
+<% form_remote_tag(:url => add_item_url) do %>
+  <%= hidden_field_tag(:delivery_customer, @user.delivery_customer?) %>
+  <strong>Date Needed</strong> 
+  <% radio_buttons.each do |button_text| %>
+    <% if @order.nil? %>
+      <% selected = false %>
+    <% else %>  
+      <% selected = @order.date_needed == button_text %>
+    <% end %>
+    
+    <%= radio_button_tag('date', button_text, selected, :onclick => "updateDateNeeded(this)") %>
+    <%= button_text %>
+  <% end %>
+<p>
+
+<table>
+<tr><td>
+
+
+<fieldset>
+  <legend>Common Items</legend>
+<table id="common_items">
+  <th></th><th>Price</th><th>Qty.</th><th>Description</th>
+<% @common_items.each do |item| %>
+  <tr>
+  <td><%= item.name %></td>
+  <td><%= item_price(item) %></td>
+  <td><%= text_field("qty_#{item.id}", 'count', :size => 3, :class => 'quantity_field') %></td>
+  <td><%= text_field("desc_#{item.id}", 'count', :size => 30, :class => 'description_field') %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td>Custom Item</td>
+    <td><%= text_field("custom", 'price', :size => 3, :class => 'description_field') %></td>
+    <td><%= text_field("custom", 'count', :size => 3, :class => 'quantity_field') %></td>
+  <td><%= text_field("custom", 'description', :size => 30, :class => 'description_field') %></td>
+  </tr>
+  <tr>
+    <td>Discount <%= select_tag('discount', 
+  options_for_select([['0', 1], ['$5.00', 5], ['$10.00', 10], ['10%', 0.9], ['15%', 0.85], ['20%', 0.8], ['25%', 0.75],
+            ['30%', 0.7], ['40%', 0.6], ['50%', 0.5]])) %>
+    </td>
+  </tr>  
+  <tr><td><br><%= submit_tag('Add to Order')%></td></tr>
+
+</table>
+</fieldset>
+
+<fieldset>
+<legend>Other Items</legend>
+<%= select_tag('category', options_for_select(@categories), 
+              :onchange => remote_function(:update => 'category_items',
+              :url => {:controller => 'instore', :action => 'update_category_items'},
+            :with => "'category_id=' + $('category').value")) %>
+
+<% items_with_prices(@category_items) %>  
+<%# select_tag('category_items', options_for_select(@category_items)) %>
+<%= select_tag('category_items', @category_options,
+              :onchange => remote_function(:update => '',
+              :url => {:controller => 'instore', :action => 'update_other_items'},
+              :with => "'category_id=' + $('category').value + '&category_item_id=' + $('category_items').value")) %>
+
+<br><br>
+
+    Quantity 
+    <%= text_field('item', 'quantity', :size => 3) %>
+    Description <%= text_field('item', 'description', :size => 20) %><br>
+    Price (for custom alteration)
+    <%= text_field('item', 'alteration_price', :size => 3) %>
+
+      <br><br><%= submit_tag('Add to Order')%>
+    
+</td>
+
+<td valign="top">
+<fieldset>
+  <legend>Items in Order</legend>
+  <ul id="order_items">
+    <% unless @order_items_html.nil? %>
+      <%= @order_items_html %>
+    <% end %>
+  </ul>
+  
+  <div id="order_total">
+  </div>
+  <div id="deposit_note" style="display: none;">
+    <h3>Note: orders $50 or higher require a 50% deposit</h3>
+  </div>
+</fieldset>
+
+<% end %>
+
+      
+      
+  <%= button_to('Clear Order', clear_order_url, 
+        :style => button_style, 
+        :id => 'clear_order')%>
+  <%= button_to('Place Order', place_order_url,
+                     :style => button_style, 
+                     :id => 'place_order') %>
+</td>
+
+</tr>
+</table>
+
+
+
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+<h1>Open Orders</h1>
+
+<%= render :partial => 'open_order_items' %>
+<br>
+<h3>Total Amount Due: <%= all_orders_total_due %></h3>
+
+<b><i>Note: all amounts include tax</i></b>

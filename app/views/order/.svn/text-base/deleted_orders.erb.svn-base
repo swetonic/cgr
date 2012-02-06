@@ -1,0 +1,13 @@
+<div id="deleted_orders">
+<% @deleted_orders.each do |deleted_order| %>
+  <table>
+    <th>Date</th><th>Reason</th><th>Order</th>
+    <tr>
+    <td valign="top"><%= date_format(deleted_order.created_at) %></td>
+    <td valign="top"><%= deleted_order.reason%></td>
+    <td><%= deleted_order.html %></td>
+    </tr>
+  </table>
+
+<% end %>
+</div>

@@ -1,0 +1,10 @@
+<% logo_width = 585 %>
+<% logo_height = 310 %>
+<% percentage = 0.3 %>
+<% logo_size = sprintf("%dx%d", logo_width * percentage, 
+        logo_height * percentage) %>
+
+<%= link_to(image_tag('cgr-logo.png', :size => logo_size, 
+             :border => 0), 
+    url_for(:controller => 'user', :action => 'signup')) %>
+

@@ -1,0 +1,98 @@
+
+<% if @logged_in.nil? %>
+
+    <% form_for :login, :url => {:action => :check_password, :redirect => 'my_account'} do |form| %>
+
+      <h3>Enter your email address and password to log in.</h3>
+      <% unless @error.nil? %>
+        <b><%= @error %></b><p/>
+      <% end %>
+    <table>
+      <tr>
+        <td>Email Address</td>
+        <td><%= form.text_field(:email_address, :size => '30', :maxlength => '64')%></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><%= form.password_field(:password, :size => '30', :maxlength => '64')%></td>
+      </tr>
+      <tr><td><%= submit_tag('Login') %></td></tr>
+
+    </table>
+
+    <% end %>
+<% else %>
+    <h3>Your Account Information</h3>
+
+    <% form_for :user, :url => {:action => :my_account} do |form| %>
+        <table>
+          <tr>
+            <td><b>Name</b></td>
+            <td><%= @user.first_name %> <%= @user.last_name %><br></td>
+          </tr>
+
+          <tr>
+            <td><b>Address</b></td>
+            <td><%= form.text_field(:address1, :value => @user.address1) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= form.text_field(:address2, :value => @user.address2) %></td>
+          </tr>
+          <tr>
+            <td><b>City</b></td>
+            <td><%= form.text_field(:city, :value => @user.city) %>, WA</td>
+          </tr>
+          <tr>
+            <td><b>Zip Code</b></td><td><%= form.text_field(:zip, :value => @user.zip) %></td>
+          </tr>
+
+          <tr><td></td></tr>
+          <tr>
+            <td><b>Phone</b></td>
+            <td><%= form.text_field(:phone, :value => @user.phone) %></td>
+          </tr>
+          <tr>
+            <td><b>Credit Card</b></td>
+            <td><%= text_field(:cc, :cc, :value => @cc_record.cc) %></td>
+          </tr>
+          <tr>
+            <td><b>CVV code</b></td>
+            <td><%= text_field(:cc, :cvv, :value => @cc_record.cvv) %></td>
+          </tr>
+          <tr>
+            <td><b>Expiration</b></td>
+            <td><%= text_field(:cc, :expiration, :value => @cc_record.expiration) %></td>
+          </tr>
+          <tr><td><%= form.submit('Save Information') %></td><td><%= @saved %></td></tr>
+        </table>
+            <%= form.hidden_field(:id, :value => @user.id) %>
+
+        <p></p>
+    <% end %>
+
+    <br>
+    <% form_for :password, :url => {:action => :my_account} do |form| %>
+        <b>Password Update</b><br>
+        Type in your current password to update your password.
+        <table>
+          <tr>
+            <td>Current Password</td>
+            <td><%= form.password_field(:password, :value => '') %></td>
+          </tr>
+          <tr>
+            <td>New Password</td><td><%= form.password_field(:new_password, :value => '') %></td>
+          </tr>
+          <tr>
+            <td>Confirm New Password</td><td><%= form.password_field(:confirm_new_password, :value => '') %></td>
+          </tr>
+          <tr><td><%= form.submit('Update Password') %></td><td><%= @password_response %></td></tr>
+        </table>
+        <%= form.hidden_field(:id, :value => @user.id) %>
+    <% end %>
+    
+<% end %>
+
+
+
+

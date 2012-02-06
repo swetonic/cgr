@@ -1,0 +1,132 @@
+
+<fieldset>
+  <legend><b>Customers</b></legend>
+<table>
+  <tr>
+    <td><%= button_to 'New Customer', :action => 'new_customer' %></td>
+    <td><%= button_to 'Show All Customers', :action => 'all_customers' %></td>
+    <td><%# button_to 'Manage No-PERC points', :action => 'manage_perc_points' %></td>
+  </tr>
+</table>
+<div id="customer_search">
+
+<% form_for :user, :url => {:action => :find_customer} do |form| %>
+
+  
+    <table>
+      <tr><td><b>Find a Customer</b></td></tr>
+      <tr><td><b>Search fields</b> (only one field required)</td></tr>
+      <tr><td>Last Name</td>
+      <td><%= form.text_field(:last_name, :size => '30', :maxlength => '127')%>
+        <div id="last_name_autocomplete_choices" class="autocomplete"></div>
+      </td>
+      <tr><td>Phone (any combination of digits)</td>
+      <td><%= form.text_field(:phone, :size => '30', :maxlength => '31')%>
+        <div id="phone_autocomplete_choices" class="autocomplete"></div>
+      </td>
+      </tr>
+      <tr><td>Email Address</td>
+      <td><%= form.text_field(:email_address, :size => '30', :maxlength => '127')%>
+        <div id="email_autocomplete_choices" class="autocomplete"></div>
+      </td>
+      </tr>
+      <tr><td><%= submit_tag 'Find Customer' %>
+        <%= submit_tag 'Find Customer | New Order', :name => 'new_order' %></td></tr>
+    </table>
+
+<% end %>
+</div>
+</fieldset>
+
+<fieldset>
+  <legend><b>Orders</b></legend>
+  <table>
+    <tr>
+      <td><%= button_to('Open Orders', :controller => 'order', :action => 'open_orders') %>
+      </td>
+      <td>
+        <%= button_to("Today's Paid Orders", :controller => 'order', :action => 'todays_paid_orders') %>
+      </td>
+      <td>
+        <%= button_to('Paid Orders', :controller => 'order', :action => 'paid_orders') %>
+      </td>
+    </tr>
+  </table>
+    
+    <% form_for :order, 
+        :url => {:controller => 'order', 
+                 :action => :find_order} do |form| %>
+        Find Order by ID
+        <%= form.text_field(:id, :size => '3', 
+                      :maxlength => '127')%>
+        <%= submit_tag 'Find Order' %>            
+    <% end %>
+
+</fieldset>
+
+<fieldset>
+  <legend><b>Timecards</b></legend>
+  <table>
+  <tr>
+     <td> <%= button_to('Punch In',
+            :controller => 'instore',
+            :action => 'punch_in') %>
+     </td>
+
+    <td><%= button_to('Punch Out',
+          :controller => 'instore',
+          :action => 'punch_out') %>
+    </td>
+
+    <td><%= button_to('Employee Hours',
+          :controller => 'instore',
+          :action => 'employee_hours') %>
+    </td>
+
+    <td><%= button_to('Manage Employees',
+          :controller => 'instore',
+          :action => 'manage_employees') %>
+    </td>
+
+  </tr>
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend><b>Reports</b></legend>
+<table>
+<tr>
+       <td> <%= button_to('Daily Report', 
+              :controller => 'reports', 
+              :action => 'daily_report') %></td>
+            
+        <td><%= button_to('Monthly Reports', 
+              :controller => 'reports', 
+              :action => 'monthly_reports') %></td>
+</tr>
+</table>
+</fieldset>
+
+<fieldset>
+  <legend><b>Settings</b></legend>
+  <%= button_to('Set Printer', 
+        :controller => 'instore', 
+        :action => 'set_printer') %> Currently: <b><%= default_printer() %></b>
+</fieldset>
+
+<script type="text/javascript">
+  Event.observe(window, 'load', function() {
+    new Ajax.Autocompleter("user_last_name", "last_name_autocomplete_choices", 
+            "/autocomplete/last_name", 
+                {frequency: 0.1});
+    new Ajax.Autocompleter("user_phone", "phone_autocomplete_choices", 
+            "/autocomplete/phone", 
+                {frequency: 0.1});
+    new Ajax.Autocompleter("user_email_address", "email_autocomplete_choices", 
+            "/autocomplete/email", 
+                {frequency: 0.1});
+  });
+</script>
+
+
+

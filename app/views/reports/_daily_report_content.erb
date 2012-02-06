@@ -1,0 +1,26 @@
+
+<table>
+  <tr><td>Date</td><td><%= @date %></td></tr>
+  <tr><td>Total Dry Cleaning Paid Orders</td><td><%= @drycleaning_total %></td></tr>
+  <tr><td>Total Alterations Paid Orders</td><td><%= @alterations_total %></td></tr>
+  <tr><td>Total Sales Tax</td><td><%= @sales_tax_total %></td></tr>
+</table>
+
+<hr>
+<table>
+  <tr><td>Cash/Check Payments</td><td><%= %></td></tr>
+  <tr><td>Sales<td><%= @cashcheck_payments %></td></tr>
+  <tr><td>Tax</td><td><%= @cashcheck_tax %></td></tr>
+</table>
+
+<hr>
+<table>
+ <tr><td>Total Credit Card Payments</td><td><%=  %></td></tr>
+  <tr><td>Sales<td><%= @credit_card_payments %></td></tr>
+  <tr><td>Tax</td><td><%= @credit_card_tax %></td></tr>
+</table>
+
+<h3>Total Payments, including tax <%= @grand_total %></h3>
+
+
+

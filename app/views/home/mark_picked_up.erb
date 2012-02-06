@@ -1,0 +1,18 @@
+
+<h3>This Pickup Was Completed On</h3>
+<%= @completed_pickup.pickup_date %>
+<br>
+<br>
+<b>Scheduled Pickup Date</b><br>
+<%= @pickup.pickup_date %><br>
+<br>
+
+<b>Customer</b><br>
+<%= @pickup.user.first_name %> <%= @pickup.user.last_name %><br>
+<%= @pickup.user.address1 %><br>
+<%= @pickup.user.address2 %><br>
+<%= @pickup.user.city %> <%= @pickup.user.zip %><br>
+<%= @pickup.user.phone %>
+<br><br>
+
+<%= button_to('<-- Back', :action => 'pickup_manifest') %>

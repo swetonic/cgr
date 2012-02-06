@@ -1,0 +1,15 @@
+<% form_for :user, :url => {:action => :verify_manager_login} do |form| %>
+
+  <table>
+    <tr>
+      <td>Manager Password</td>
+    </tr>
+    <tr>
+    <td><%= password_field(:manager, :password, :size => 20, :maxlength => 19) %></td>
+    </tr>
+    <tr>
+      <td><%= submit_tag('Submit') %></td>
+    </tr>
+  </table>
+
+<% end %>

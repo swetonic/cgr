@@ -1,0 +1,43 @@
+<%= link_to(image_tag('NoPerc.jpg', :size => '100x100', :border => 0), 
+    url_for(:action => 'noperc')) %>
+
+<h1>Join our "No PERC" Revolution</h1>
+
+Most dry-cleaning companies use perchloroethylene, or "PERC," during their 
+process of cleaning clothes. Clean Green Revolution chooses to <b>NOT</b> use 
+PERC because it's so toxic for the earth's environment.
+
+<p/>
+
+<div id="citation">
+<table>
+<tr><td>
+  "Perc is classified as a hazardous air contaminant by the United States 
+Environmental Protection Agency and must be handled as a hazardous waste. To 
+prevent it from getting into drinking water, dry cleaners that use perc must 
+take special precautions against site contamination. Landlords are becoming 
+increasingly reluctant to allow dry cleaners to operate in their buildings. 
+When released into the air, perc can contribute to smog when it reacts with 
+other volatile organic carbon substances. California declared perchloroethylene 
+a toxic chemical in 1991, and its use will become illegal in that state in 2023."
+</td></tr>
+</table>
+</div>
+
+<p/>
+Dry cleaning. (2009, July 26). In Wikipedia, The Free Encyclopedia. 
+Retrieved 19:08, July 26, 2009, from 
+<%= link_to('http://en.wikipedia.org/w/index.php?title=Dry_cleaning&oldid=304337914',
+    'http://en.wikipedia.org/w/index.php?title=Dry_cleaning&oldid=304337914#Environment') %>
+
+<p/>
+
+<h3>What YOU can do</h3>
+<h3>
+You can start by <%= link_to('signing up', signup_url()) %> for our service. 
+<br>Then spread the word.
+</h3>
+<p/>
+
+<%= link_to(image_tag('NoPerc.jpg', :size => '100x100', :border => 0), 
+    url_for(:action => 'noperc')) %>

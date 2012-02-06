@@ -1,0 +1,12 @@
+<br><br>
+<b>Employee Name</b>
+<% form_for :employee, :url => {:action => :add_employee} do |form| %>
+    <%= form.text_field(:name, :size => '30', :maxlength => '128')%><br><br>
+    <%= form.submit("Add Employee") %>
+<% end %>
+
+<% employees = Employee.get_all %>
+<% if employees.length > 0 %>
+    <h3>Current Employees</h3>
+    <% employees.each { |name,id| %> <%= name %> <br><% } %>
+<% end %>

@@ -1,0 +1,32 @@
+
+<h3>We have received your request for a pickup.</h3>
+
+<h3>If you need to cancel your pickup, <%= link_to('click here',
+                                               url_for(:controller => 'home',
+                                               :action => 'cancel_pickup',
+                                               :id => @pickup.id)) %>
+</h3>
+
+<b>Account email address</b> <%= @user.email_address %><p/>
+<b>Name</b> <%= @user.first_name %> <%= @user.last_name %><p/>
+<b>Address</b><p/>
+<%= render :partial => 'user_address', :locals => {:user => @user} %>
+
+<% if @delivery_days != nil %>
+    <h3>Your Delivery Days are <%= @delivery_days %>.</h3>
+    <h3>Please have your laundry bag out by 9 am on </h3>
+    <h3>the next delivery day.</h3>
+<% else %>
+    <h3>Please have your bag of clothes on your front porch for pickup.</h3>
+    <h3>We will pickup between 3 pm and 5 pm tomorrow.</h3>
+    Want a pickup today? <br>
+    Call 206-708-4308 before 3 pm.
+<% end %>
+
+<p></p>
+
+<h3>Your order will be delivered when it's complete</h3>
+<br>
+<h3>Thank you for choosing Clean Green Revolution <br>
+  Eco-Friendly Dry Cleaning and Laundry
+</h3>

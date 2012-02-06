@@ -1,0 +1,65 @@
+<h3>Customer Information</h3>
+<table>
+<tr>
+<td><%= button_to('New Order', :action => 'new_order', :id => @user.id) %></td>
+<td><%= button_to('Edit Customer Information', :action => 'edit_customer', :id => @user.id) %></td>
+<td><%= button_to('Customer Order History', 
+    :controller => 'order', :action => 'order_history', 
+    :id => @user.id) %></td>
+</tr>
+<table>
+
+<%= render :partial => 'customer_info', :locals => {:customer_info => @user} %>
+<br>
+
+<% if session[:addpoints_message] %>
+  <b><%= session[:addpoints_message] %></b>
+    <% session[:addpoints_message] = nil  %>
+<% end %>
+
+<h3>"No PERC" Perk Points</h3> 
+
+<% form_for :user, 
+            :url => {:action => :add_points, :id => @user.id} do |form| %>
+
+
+<fieldset>
+<legend>Add Points for Hangers</legend>
+  <%= radio_button('point', 'value', '20',  :checked => true) %> 20   <%= radio_button('point', 'value', '30') %> 30
+  <%= radio_button('point', 'value', '40') %> 40   <%= radio_button('point', 'value', '50') %> 50
+    <%= submit_tag('Add') %>
+</fieldset>
+<% end %>
+
+<% form_for :user, 
+            :url => {:action => :referral, :id => @user.id} do |form| %>
+<br>
+Referral - 100 points <%= submit_tag('Add') %>
+<% end %>
+
+
+<br><br>
+<fieldset>
+<legend>Spend Points</legend>
+<% form_for :user, 
+            :url => {:action => :spend_points, :id => @user.id} do |form| %>
+  <table>
+  <tr>
+  <td><%= radio_button('point', 'spend', '20% Off', :checked => true) %> 20% Off</td>
+  <td><%= radio_button('point', 'spend', '99 cent shirts') %> $0.99 shirts</td>
+  </tr>
+  <tr>
+  <td><%= radio_button('point', 'spend', '30% Off Bedding') %> 30% Off Bedding</td>
+  <td><%= radio_button('point', 'spend', '2 garment bags') %> 2 garment bags</td>
+  </tr>
+
+  <tr><td><br><%= submit_tag('-100 points') %></td></tr>
+  </table>
+<% end %>
+
+</fieldset>
+
+
+
+
+

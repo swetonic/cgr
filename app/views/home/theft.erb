@@ -1,0 +1,16 @@
+
+<hr>
+
+<% @orders.each do |order| %>
+    <table border>
+      <tr>
+        <td><b>Deleted On</b> <%= order.created_at %></td>
+        <td><b>Reason</b> <%= order.reason %></td>
+        <td><b>Admin id</b> <%= order.admin_id %></td>
+      </tr>
+      <tr>
+        <td colspan=3><%= order.html %></td>
+      </tr>
+    </table>
+    <hr>
+<% end %>

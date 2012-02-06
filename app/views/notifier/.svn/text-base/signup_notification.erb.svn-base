@@ -1,0 +1,9 @@
+<p>
+Someone signed up for our delivery service. Below is the new customer's
+information.
+
+<p>
+
+<%= render :partial => 'instore/customer_info', 
+        :locals => {:customer_info => @customer} %>
+

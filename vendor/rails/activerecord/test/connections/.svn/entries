@@ -1,0 +1,76 @@
+10
+
+dir
+397
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr/trunk/vendor/rails/activerecord/test/connections
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr
+
+
+
+2009-07-03T22:28:02.972908Z
+60
+jazzbas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9a0c08a6-b572-489f-922d-4569c8c2a73c
+
+jdbc_jdbchsqldb
+dir
+
+native_frontbase
+dir
+
+jdbc_jdbcsqlite3
+dir
+
+native_sqlite3
+dir
+
+native_sybase
+dir
+
+native_firebird
+dir
+
+native_openbase
+dir
+
+native_sqlite
+dir
+
+jdbc_jdbcpostgresql
+dir
+
+native_postgresql
+dir
+
+jdbc_jdbcmysql
+dir
+
+jdbc_jdbcderby
+dir
+
+native_oracle
+dir
+
+native_mysql
+dir
+
+native_db2
+dir
+
+jdbc_jdbch2
+dir
+

@@ -1,0 +1,28 @@
+<h3><%= @report_title %></h3>
+<div id="report">
+<table>
+<tr>
+<td><b>Total Income</b></td><td><%= @total_income %></td>
+</tr>
+<tr>
+<td><b>Orders Opened</b></td><td><%= @orders_opened %></td>
+</tr>
+<tr>
+<td><b>Number of Payments</b></td><td><%= @num_payments %></td>
+</tr>
+<tr>
+<td><b>Alterations Total</b></td><td><%= @alterations_total %></td>
+</tr>
+</table>
+
+<h3>Cleaned Items Detail</h3>
+
+<table>
+  <th>Item</th><th>Count</th><th>Amount</th>
+    <% @item_detail.each do |item| %>
+      <tr><td><b><%= item[:category] %></b></td><td><%= item[:count] %></td>
+        <td><%= sprintf("$%.2f", item[:amount]) %></td>
+      </tr>
+    <% end %>
+</table>
+</div>

@@ -1,0 +1,35 @@
+
+<h3>Pickups for Today, <%= @today %></h3>
+
+<ol>
+<% @pickups.each do |pickup| %>
+        <li><%= link_to("#{pickup.user.first_name} #{pickup.user.last_name}", :action => 'pickup_details', :id => pickup.id) %>,
+        <%= pickup.user.address1 %>
+        <%= pickup.user.address2 %>
+        <%= pickup.user.city %>
+        <%= pickup.user.zip %>,
+        <%= pickup.user.phone %> (<%= picked_up_status(pickup.id)%>) || (<%= delivery_status(pickup.id)%>) || <%= link_to('Delete', :action => 'delete_from_manifest', :id => pickup.id) %> ||
+        <% if !pickup.coupon_code.nil? %>
+          Coupon: <%= pickup.coupon_code %>
+        <% end %>
+        </li>
+<% end %>
+</ol>
+
+<hr>
+
+<h3>Previous Pickups</h3>
+<% @older.each do |pickup| %>
+    <%= pickup.pickup_date.mon%>/<%= pickup.pickup_date.day%>/<%= pickup.pickup_date.year%>
+        <%= link_to("#{pickup.user.first_name} #{pickup.user.last_name}", :action => 'pickup_details', :id => pickup.id) %>,
+        <%= pickup.user.address1 %>
+        <%= pickup.user.address2 %>
+        <%= pickup.user.city %>
+        <%= pickup.user.zip %>,
+        <%= pickup.user.phone %> (<%= picked_up_status(pickup.id)%>) || (<%= delivery_status(pickup.id)%>) ||
+        <% if !pickup.coupon_code.nil? %>
+          Coupon: <%= pickup.coupon_code %>
+        <% end %>
+        <br>
+<% end %>
+

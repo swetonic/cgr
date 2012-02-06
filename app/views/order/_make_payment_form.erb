@@ -1,0 +1,39 @@
+<% order_payments = Payment.payments_made(order.id) %>
+
+<fieldset>  
+    <legend>Payment</legend>
+
+    <% form_for :order, 
+            :url => {:action => :make_payment} do |form| %>
+        <%= hidden_field_tag('tax', tax) %>
+        <%= hidden_field_tag('order_id', order.id) %>
+
+        <table>
+          <tr>
+            <td><%= radio_button('payment', 'type', 'credit') %></td><td> Credit </td>
+            <td><%= select_tag('cc_type', options_for_select(['Visa', 'Mastercard'])) %></td>
+          </tr>
+          <tr>
+            <td><%= radio_button('payment', 'type', 'cash') %></td><td> Cash </td>
+          </tr>
+          <tr>
+            <td><%= radio_button('payment', 'type', 'check') %></td><td> Check </td>
+            <td>Check # <%= text_field_tag('check_number', 
+                        nil, :size => 8)%></td>
+          </tr>
+          <tr>
+            <td><%= radio_button('payment', 'type', 'debit') %></td><td> Debit </td>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <td><%= text_field_tag('payment_amount', 
+                        amount_due_s(order.order_items, order_payments, order.id, @is_deposit), :size => 8)%></td>
+          </tr>
+          <tr>
+            <td></td><td><%= submit_tag('Make Payment') %></td>
+          </tr>
+        </table>
+
+        <% end %>
+</fieldset>  
+

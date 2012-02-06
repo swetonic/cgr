@@ -1,0 +1,5 @@
+
+--This line, and those below, will be ignored--
+
+M    app/models/user.rb
+M    app/controllers/instore_controller.rb

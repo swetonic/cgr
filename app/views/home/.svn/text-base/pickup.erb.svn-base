@@ -1,0 +1,58 @@
+
+
+<% if @logged_in.nil? %>
+  <h3>Schedule a Pickup</h3>
+  <% form_for :login, :url => {:action => :check_password, :redirect => 'pickup'} do |form| %>
+
+    <h3>Enter your email address and password to log in.</h3>  
+    <% unless @error.nil? %>
+      <b><%= @error %></b><p/>
+    <% end %>
+  <table>
+    <tr>
+      <td>Email Address</td>
+      <td><%= form.text_field(:email_address, :size => '30', :maxlength => '64')%></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><%= form.password_field(:password, :size => '30', :maxlength => '64')%></td>
+    </tr>
+    <tr><td><%= submit_tag('Login') %></td></tr>
+
+  </table>
+
+  <% end %>
+    <p/><p/>
+    <b>Don't Have an Account?</b> <%= link_to('Sign Up', 
+                :controller => 'user', :action => 'signup')%><p/>
+    <%= link_to('Forgot Your Password?', 
+                :controller => 'home', :action => 'forgot_password') %>
+<% else %>
+  <% unless @user.nil? %>
+    <h3>To Schedule a Pickup, click the button below.</h3>
+    <% if @delivery_days != nil %>
+        <h3>Your Delivery Days are <%= @delivery_days %>.</h3>
+        <h3>Please have your laundry bag out by 9 am on </h3>
+        <h3>the next delivery day.</h3>
+    <% else %>
+        <h3>Please have your laundry bag out by 9 am <br>
+          tomorrow (Monday through Friday)</h3>
+        Want a pickup today? Call 206-708-4308 before 3 pm.<br>
+    <% end %>
+<br>
+    <b>Account email address</b> <%= @user.email_address %><br>
+    <b>Delivery Address</b><br>
+    <%= render :partial => 'user_address', :locals => {:user => @user} %>    
+    <br><br>
+    <% form_for :login, :url => {:action => :schedule_pickup, :user_id => @user.id} do |form| %>
+      Coupon Code
+      <%= form.text_field(:coupon_code, :size => '20', :maxlength => '16') %><br>
+      <br>
+      <%= submit_tag('Schedule Pickup') %>
+    <% end %>  
+    
+  <% end %>
+  
+<% end %>
+
+

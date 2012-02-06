@@ -1,0 +1,34 @@
+<div id="open_orders">
+<table>
+  <th>Customer</th><th>Date Needed</th><th></th><th>Order #</th>
+  <th>Order Date</th><th>Paid Date</th>
+  <th>Amount Due/Paid</th>
+  <th>Order Taker</th>
+<% @orders.each do |order| %>
+  <% unless order.nil? %>
+    <tr>
+      <% customer_name = '' %>
+      <% unless order.user.nil? %>
+        <% customer_name = "#{order.user.first_name} #{order.user.last_name}" %>
+      <% end %>
+      <td><%= link_to(customer_name, :action => 'view_order', :id => order.id) %> </td> 
+      <td><%= order.date_needed %></td>
+      <td><%= link_to('Delete', :action => 'delete', :id => order.id) %>
+          | <%= link_to('Edit', :action => 'edit', :id => order.id) %></td>
+      <td><%= order.id %> </td> 
+      <td><%= order.created_on.strftime("%m/%d/%y") %></td>
+      <td><%= Payment.order_paid_on(order.id) %></td>
+        
+      <td>$
+      <% begin %>
+        <%= amount_due_s(order.order_items, Payment.payments_made(order.id), order.id) %></td>
+      <% rescue Exception => e %>  
+      <% end %>
+      <td><%= order.admin.name unless order.admin.nil? %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+</div>
+
+<%# order_total(order) %>

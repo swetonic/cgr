@@ -1,0 +1,23 @@
+
+<h3>Employee : <%= @employee.name %></h3>
+
+<% @date_ranges.each do |entry_hash| %>
+    <hr>
+    <b><%= week_format(entry_hash[:week_start], entry_hash[:week_end]) %></b><br>
+
+    <% if entry_hash.key?(:punches) %>
+        <table cellpadding=5>
+        <th>Date</th><th>In</th><th>Out</th>  
+        <% entry_hash[:punches].each do |punch| %>
+            <tr>
+              <td><%= punch[:in].report_date_format %></td>
+              <td><%= punch[:in].report_time_format %></td> <td><%= punch[:out].report_time_format %></td>
+              <td><%=time_from_seconds(EmployeeHour.total_time_seconds(punch[:in].created_at, punch[:out].created_at)) %></td>
+            </tr>
+        <% end %>
+        </table>
+    <% end %>
+<p></p>
+    <b>Total</b> <%= time_from_seconds(entry_hash[:total_seconds]) %><br><br>
+<% end %>
+

@@ -1,0 +1,27 @@
+
+
+
+<script type="text/javascript">
+  window.onload = load;
+  var xhr = new XMLHttpRequest();
+
+  function load() {
+      xhr.open("GET", "http://www.cleangreenrevolution.com/home/test", true);
+      xhr.onreadystatechange = onReady;
+      xhr.send();
+    //alert(xhr);
+  }
+
+  function onReady() {
+    if (xhr.readyState != 4)  { return; }
+    var serverResponse = xhr.responseText;
+  }
+
+
+  
+</script>
+
+
+
+
+Hello

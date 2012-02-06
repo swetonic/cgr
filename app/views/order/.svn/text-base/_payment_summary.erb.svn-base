@@ -1,0 +1,16 @@
+<% total = 0.0 %>
+<% tax = 0.0 %>
+
+<% payments.each do |payment| %>
+  <% total += payment.amount %>
+  <% tax += payment.tax %>
+<% end %>
+
+<div id="payment_cells">
+<table>
+<tr>
+  <td>$<%= sprintf("%.2f", total) %></td>
+</tr>
+
+</table>
+</div>

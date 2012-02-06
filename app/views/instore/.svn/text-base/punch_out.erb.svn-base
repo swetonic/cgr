@@ -1,0 +1,12 @@
+
+<hr>
+<h3>Employees</h3>
+<b>These employees can punch out</b><br>
+<% form_for :instore, :url => {:action => :do_punchout} do |form| %>
+
+    <% can_punch_out = EmployeeHour.can_punch_out %>
+
+    <%= select("employee", "employee_id", can_punch_out.collect {|name,id| [ name, id ] }, { :include_blank => false }) %>
+    <br> <br>
+    <%= form.submit("Punch Out") %>
+<% end %>

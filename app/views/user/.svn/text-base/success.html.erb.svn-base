@@ -1,0 +1,17 @@
+
+
+<% if @in_area == 0 %>
+    <h3>Thank you for your interest in our services.</h3>
+    <h3>Your zip code is not in our delivery area.</h3>
+    <h3>Someone will contact you in the next 48 hours to discuss delivery options.</h3>
+<% else %>
+    <h3>
+    Thank you for signing up with Clean Green Revolution.
+    </h3>
+    
+    <h3>Are you ready to schedule a pickup (using your own laundry bag)?</h3>
+    <h3>Yes - <%= link_to('Schedule A Pick Up',
+      :controller => 'home', :action => 'pickup') %></h3>
+    <br>
+    <h3>Not Yet? Schedule a pickup whenever you're ready.</h3>
+<% end %>

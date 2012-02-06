@@ -1,0 +1,20 @@
+<div id="nav_alt">
+<table>
+  <tr>
+    <td colspan=8 align="center"><%= render :partial => 'shared/logo_wide' %></td>
+  </tr>
+  <tr>  
+    <td><%= link_to_unless_current('Home', :controller => 'home') %></td>
+    <td><%= link_to_unless_current('Services', :controller => 'home', :action => 'services') %></td>
+    <td><%= link_to_unless_current('Pricing', :controller => 'pricing') %></td>
+    <td><%= link_to_unless_current('FAQ', :controller => 'faq') %></td>
+    <td><%= link_to_unless_current('Sign Up', :controller => 'user', :action => 'signup') %></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><b>{206} 708.4308</b></td>
+    <td><%= image_tag 'email-addr.png' %></td>
+  </tr>
+</table>
+</div>

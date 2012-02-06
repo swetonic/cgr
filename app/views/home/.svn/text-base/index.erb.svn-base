@@ -1,0 +1,69 @@
+<div style="position: absolute; left: 100px; top: 340px">
+</div>
+
+<%
+kent_url = "http://maps.google.com/maps?um=1&ie=UTF-8&q=26112+Pacific+Highway+SouthKent,+WA&fb=1&gl=us&hnear=Seattle,+WA&cid=0,0,1468609785773720804&ei=vxs6TMifN4m6sQPLkJxR&sa=X&oi=local_result&ct=image&resnum=1&ved=0CBUQnwIwAA"
+
+greenlake_url = "http://maps.google.com/maps?q=5415+Meridian+Ave.+NSeattle,+WA&um=1&ie=UTF-8&hq=&hnear=5415+Meridian+Ave+N,+Seattle,+WA+98103&gl=us&ei=LRw6TKeINo_0swPxxulR&sa=X&oi=geocode_result&ct=image&resnum=1&ved=0CBYQ8gEwAA"
+%>
+
+<div id="home_page">
+
+
+<table>
+<tr>
+<td>
+<%= render :partial => 'shared/logo_tall' %>
+
+<div style="margin-top: 40px;">
+
+
+</div>
+</td>
+<td>&nbsp &nbsp</td>
+<td valign="top">
+  <h2>It is time for Eco-Friendly dry cleaning.</h2>
+<br><br>
+  <h3>Free pickup and delivery makes it easy!</h3><br>
+  <!--<h3>Free laundry bag, door hook <br>and garment bag for <br>
+    first-time customers.</h3><br>-->
+    <h3><%= link_to('How do I get started?', :controller => 'user', :action => 'howto_join')%>
+    </h3>
+  <br>
+
+  <h3><%= link_to('So...When will I see my clothes?', :action => 'when')%></h3>
+
+  <br>
+    <h3><%= link_to('How to use an online Coupon', :action => 'online_coupon') %></h3>
+</td>
+
+<table cellpadding=5>
+    <tr>
+      <td valign="top">
+        <b>Seattle</b><br>
+        <a href="<%= greenlake_url %>">5415 Meridian Ave. N<br>
+        Seattle, WA</a><p/>
+        Phone: <b>206-547-0771</b>
+        <p/>
+        Cell: <b>206-708-4308</b>
+          <p/>
+          Store Hours<br>
+          <table cellpadding=4>
+              <tr><td>Mon - Fri</td> <td>8:30 - 6:30</td></tr>
+              <tr><td>Sat</td><td> 11 - 4</td></tr>
+              <tr><td>Sun</td>  <td>Closed</td></tr>
+          </table>
+      </td>
+    </tr>
+</table>
+    
+</div>
+
+
+
+
+
+
+
+
+

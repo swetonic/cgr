@@ -1,0 +1,13 @@
+
+<h3>Edit Order <%= @order.id %></h3>
+<%= render :partial => 'shared/order_form',
+    :locals => { :add_item_url => 
+        {:controller => 'instore', :action => 'add_item_to_order'},
+          :order_items => @order_items_html,
+          :clear_order_url => {:controller => 'instore', 
+                    :action => 'clear_order', :user_id => @user.id},
+          :place_order_url => { :action => 'update_order', :order_id => @order.id,
+                    :user_id => @user.id} } %>
+
+
+

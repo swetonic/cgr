@@ -1,0 +1,1 @@
+mysql -u jazzbas_jazzbass -p jazzbas_cgr -e "select pickup_date,u.first_name,u.last_name,u.phone,u.email_address,pickup_date,created_at as schedule_date from pickups p join users u on u.id=p.user_id order by pickup_date desc;"

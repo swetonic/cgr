@@ -1,0 +1,6 @@
+<h3>Edit Customer Information</h3>
+<%= render :partial => 'edit_customer_form', :locals => {:customer_info => @user} %>
+
+<div id="status">
+  
+</div>

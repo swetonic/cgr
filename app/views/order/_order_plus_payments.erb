@@ -1,0 +1,22 @@
+<% payments = Payment.payments_made(order.id) %>
+
+<table>  
+  <tr>
+  <td valign="top">
+    <h3>Order Items</h3>
+    <div id="order_items_table">
+    <%= render :partial => 'order_items', 
+        :locals => {:order_items => order.order_items, :order => order} %>
+    </div>
+  </td>
+  <td valign="top">
+    <h3>Payments</h3>
+    <div id="order_payments">
+      <%= render :partial => 'order_payments', 
+        :locals => {:order_payments => payments} %>
+    </div>
+  </td>
+  </tr>
+  <tr><td><b>Amount due: <%= amount_due_formatted(order, payments) %></b></td></tr>
+</table>  
+

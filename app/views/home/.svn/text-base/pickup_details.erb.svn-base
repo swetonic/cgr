@@ -1,0 +1,34 @@
+
+<b>Scheduled Pickup Date</b><br>
+<%= @pickup.pickup_date %><br>
+<br>
+
+<b>Customer</b><br>
+<%= @pickup.user.first_name %> <%= @pickup.user.last_name %><br>
+<%= @pickup.user.address1 %><br>
+<%= @pickup.user.address2 %><br>
+<%= @pickup.user.city %> <%= @pickup.user.zip %><br>
+<%= @pickup.user.phone %>
+<br><br>    
+<b>Actual Pickup Date</b>
+<br>
+<% if @completed_pickup.nil? %>
+    <%= button_to('Mark As Picked Up', :action => 'mark_picked_up', :id => @pickup.id) %>
+<% else %>
+    <%= @completed_pickup.pickup_date %>
+<% end %>
+
+
+<br><br>
+<b>Delivery Date</b>
+<br>
+<% if @delivery.nil? %>
+    <%= button_to('Mark As Delivered', :action => 'mark_delivered', :id => @pickup.id) %>
+<% else %>
+    <%= @delivery.delivery_date %>
+<% end %>
+
+
+<br>
+<br>
+<%= button_to('<-- Back', :action => 'pickup_manifest') %>

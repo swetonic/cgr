@@ -1,0 +1,7 @@
+<h3>New Order</h3>
+<%= render :partial => 'shared/order_form',  
+        :locals => {:add_item_url => {:action => 'add_item_to_order'},
+        :clear_order_url => url_for({:action => 'clear_order', :user_id => @user.id}),
+        :place_order_url => url_for({:action => 'place_order', :user_id => @user.id}) } %>
+
+

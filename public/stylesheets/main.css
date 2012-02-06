@@ -1,0 +1,206 @@
+/*Pantone 476 U  - #593d2b*/
+/*Pantone 362 U - #339E35*/
+/*Pantone 390 U - #BAC405*/
+
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-size: x-large;
+    color: #593d2b;
+}
+
+h3 {
+    color: #2C5E2E;
+}
+
+td{
+    font-size: small;
+}
+
+th{
+    font-size: small;
+}
+
+li {
+    list-style-type: none;
+}
+
+#main {
+    background: #ffffff;
+}
+
+#pricing_table table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+#pricing_table td {
+    font-size: small;
+    padding: 4px;
+    border: 1px solid black;
+}
+
+#pricing_table th {
+    text-align: left;
+    background: #70B85D;
+    padding: 4px;
+    color: #2C5E2E;
+}
+
+/*Pantone 476 U  - #593d2b*/
+/*Pantone 362 U - #339E35*/
+/*Pantone 390 U - #BAC405*/
+
+a {
+    text-decoration: none;
+    color: #339E35;
+}
+
+#nav a:hover {
+    color: #BAC405;
+}
+
+#faq p {
+    font-size: small;
+}
+
+#nav li {
+    list-style-type: none;
+    font-size: large;
+}
+
+#nav_td {
+    padding-top: 5px;
+}
+
+#nav_alt td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#main_td {
+    padding-left: 80px;
+}
+
+.darkGreen {
+    color: #2C5E2E;
+    font-size: large;
+}
+
+.lightGreen {
+    color: #70B85D;
+    font-size: large;
+}
+
+.fieldWithErrors {
+    display: inline;
+    
+}
+
+.errorExplanation {
+    font-size: small;
+}
+
+#signup_form td {
+    font-size: small;
+}
+
+#customer_info td {
+    font-size: small;
+}
+
+#customer_list td{
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+}
+
+#customer_list table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+
+#tbl_manage_perc_points, #open_orders table, #report table, 
+#paid_order_list table, #payment_summary table, #order_payments table, #deleted_orders table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+#paid_order_list th, #tbl_manage_perc_points th, #report th, #open_orders th, 
+#order_items_table th, #payment_summary th, #deleted_orders th, 
+#order_payments th {
+    background-color: #70B85D;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 9pt;
+}
+
+#paid_order_list td, #tbl_manage_perc_points td, #report td, #open_orders td, 
+#payment_summary td, #order_items_table td, 
+#order_items_table table, #deleted_orders td, #order_payments td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 9pt;
+}
+
+#payment_cells td{
+    border-collapse: collapse;
+    border: 1px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#citation td {
+    padding-left: 10px;
+    padding-right: 80px;
+    font-style: italic;
+}
+
+#signup_form .note_text {
+    font-size: 10px;
+}
+
+
+div.autocomplete {
+  position:absolute;
+  width:250px;
+  background-color:white;
+  border:1px solid #888;
+  margin:0;
+  padding:0;
+}
+
+div.autocomplete ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+div.autocomplete ul li.selected { background-color: #ffb;}
+
+div.autocomplete ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  font-size: 8pt;
+  padding:2px;
+  height:32px;
+  cursor:pointer;
+}
+
+
+.menu_title {
+    color: #593d2b;
+    font-size: 18pt;
+}
+
+.howto {
+    margin-top: 10px;
+}

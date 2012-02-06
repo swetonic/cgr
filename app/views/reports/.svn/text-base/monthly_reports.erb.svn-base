@@ -1,0 +1,7 @@
+
+<h1>Monthly Reports Available</h1>
+
+<% @months.each do |month_num, month_year|%>
+  <%= link_to("#{month_year[0]}, #{month_year[1]}", :action => 'monthly_report', 
+            :month_num => month_num, :year => month_year[1]) %><br>
+<% end %>

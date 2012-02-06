@@ -1,0 +1,6 @@
+
+<h1>Your order was updated</h1>
+
+<%= link_to('View Order', url_for(:action => 'view_order', :id => @id)) %>
+
+

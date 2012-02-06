@@ -1,0 +1,4 @@
+
+The customer record has been deleted.
+<%= render :partial => 'customer_info', :locals => {:customer_info => @user} %>
+

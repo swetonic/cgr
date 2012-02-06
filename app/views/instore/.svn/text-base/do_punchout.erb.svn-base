@@ -1,0 +1,4 @@
+
+<hr>
+
+<h3><%= @employee.name %> is punched out.</h3>

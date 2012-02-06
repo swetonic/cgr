@@ -1,0 +1,8 @@
+<table>
+  <th>Date</th><th>Amount</th><th>Method</th>
+<% order_payments.each do |pmt| %>
+  <tr>
+    <%= format_payment_td(pmt) %>
+  </tr>
+<% end %>
+</table>

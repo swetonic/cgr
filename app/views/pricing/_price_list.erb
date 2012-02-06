@@ -1,0 +1,22 @@
+<div id="pricing_table">
+
+<h3><%= title%></h3>
+<% prices = items %>
+  <table><th>Item</th><th>Price</th>
+  <% prices.each do |price| %>
+    <tr><td><%= price.name %></td><td>
+        <% if price.delivery_price == 0 %>
+          Call for Quote
+        <% else %>
+            <% if is_local? %>
+              <%= sprintf("$%.2f", price.price) %>
+            <% else %>
+              <%= sprintf("$%.2f", price.delivery_price) %>
+            <% end %>
+        <% end %>
+        </td>
+  <% end %>
+  </table>
+</div>
+
+

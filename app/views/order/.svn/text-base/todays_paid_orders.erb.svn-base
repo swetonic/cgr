@@ -1,0 +1,24 @@
+<h1>Today's Paid Orders</h1>
+<b><%= date_format(Time.now) %></b>
+<p>
+<h3><%= @orders.size %> payments</h3>
+<table>
+<tr>
+  <td valign="top"><%= render :partial => 'payment_details' %></td>
+  <td valign="top"><%= render :partial => 'paid_orders', :locals => {:orders => @orders} %></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

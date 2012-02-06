@@ -1,0 +1,42 @@
+<% if @error.nil? %>
+  <h3>Order Complete</h1>
+
+<table>
+  <tr>
+    <td><b>Customer</b></td><td> <%= @user.first_name %> <%= @user.last_name %></td>
+  </tr>
+  <tr>
+    <td>Order Number</td><td> <%= @order.id %></td>
+  </tr>
+</table>
+
+<h3>Items in this order:</h3>
+
+<div id="order_items_table">
+    <%= render :partial => 'order/order_items', 
+        :locals => {:order => nil, :order_items => @order.order_items} %>  
+</div>
+
+<% if @order_total >= 50.0 %>
+  <h1>Note: 50% deposit required for orders over $50</h1>
+  <%= link_to('Make Payment', :controller => 'order', 
+            :action => 'view', :id => @order.id, :deposit => true) %>
+<% end %>
+
+<p>
+  <b><%= @print_result %></b>
+  
+  <form>
+  <%= submit_to_remote('Print Receipt', 'Print Receipt', 
+                :url => {:id => @order.id, :action => 'print_receipt'})%>              
+  </form>
+  
+
+<b>Click here to send an email to the customer, with an attachment of the order receipt.</b>
+<%= button_to('Send Email', :action => 'send_order_email', :order_id => @order.id, :user_id => @order.user.id) %>
+      
+<% else %>
+  <h3><%= @error %></h3>
+<% end %>
+
+

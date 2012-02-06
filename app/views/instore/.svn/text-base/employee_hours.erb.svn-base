@@ -1,0 +1,7 @@
+
+<table>
+<% @employees.each do |e| %>
+    <tr><td><%= link_to(e.name, :action => 'show_hours', :id => e.id) %></td></tr>
+<% end %>
+
+</table>

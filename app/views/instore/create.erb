@@ -1,0 +1,16 @@
+
+<%= error_messages_for(:user) %>
+
+
+
+<% unless @exception.nil? %>
+  <%= @exception %><br><br>
+<% end %>  
+
+<% if @succeeded %>
+  Your new customer was created.
+<p>
+  <%= link_to('New Order for this Customer', :action => 'new_order', :id => @user.id) %>
+<% else %>
+    <%= render :partial => 'signup_form'%>
+<% end %>

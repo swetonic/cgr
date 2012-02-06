@@ -1,0 +1,15 @@
+
+<h1>Delete Order</h1>
+
+<div id="open_orders">
+    <%= render :partial => 'order_items', 
+      :locals => {:order_items => @order.order_items, :order => @order} %>
+</div>
+
+<p/>
+
+<%= form_tag({:action => 'delete_order', :id => @order.id}) %>
+    <b>Reason for deleting this order</b><br>
+    <%= text_field_tag(:reason, '', :size => 35) %><br><br>
+    <%= submit_tag('Delete') %>
+</form>

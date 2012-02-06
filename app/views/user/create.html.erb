@@ -1,0 +1,20 @@
+
+<% error_messages = error_messages_for(:user) %>
+
+<% if error_messages.nil? %>
+    <% unless @exception.nil? %>
+      <h3><%= @exception %></h3>
+    <% end %>
+<% else %>
+    <% if @exception.nil? %>
+        <h3><%= error_messages %></h3>
+    <% else %>
+        <h3><%= @exception %></h3>
+    <% end %>
+<% end %>
+
+<% if @not_in_area %>
+<% end %>
+
+<%= render :partial => 'signup_form'%>
+

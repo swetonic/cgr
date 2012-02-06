@@ -1,0 +1,65 @@
+
+<! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<title>Eco-Friendly Dry Cleaning and Laundry in Seattle: Clean Green Revolution</title>
+
+<meta name="keywords" content="green dry cleaning Seattle, Seattle dry cleaning, dry cleaning Seattle, Seattle dry cleaners, green dry cleaning, green dry cleaners in Seattle, Seattle eco-friendly dry cleaning, eco-friendly dry cleaning, free delivery dry cleaning" />
+<meta name="description" content="Eco-friendly dry cleaner with free pickup and delivery in the Seattle area. info@cleangreenrevolution.com" />
+<meta name="verify-v1" content="L3T3D9Gh6EMXAK/Qd/Hd2Tdyjdlq5GTpXQ5uMqADlg0=" />
+
+<%= stylesheet_link_tag "main" %>
+
+<%= javascript_include_tag :defaults %>
+</head>
+
+
+<%= render :partial => 'layouts/urchin' %>
+
+<body id="main">
+    <table>
+      <tr>
+        <td id="nav_td" valign="top"><%= render :partial => 'home/nav' %>
+          <br>
+        </td>
+        <td id="main_td">
+              <% if session[:is_admin] and session[:is_local] != nil and session[:is_local] == 'true' %>
+                <h3>Admin: <%= session[:admin_user] %> <%=link_to('(click to logout)', 
+                                :controller => 'admin',
+                                :action => 'logout')%>  Store: <%= store_name() %>
+                </h3>
+              <% end %>  
+        <%= yield :layout %>
+        </td>
+      </tr>
+    </table>
+</body>
+
+<br><br>
+<center>
+
+<!--  <a href="http://www.envirostars.com/"><%= image_tag 'envirostars.jpg',
+            {:border => '0'} %></a>
+          Clean Green Revolution, LLC, has a 5 star rating with <a href="http://www.envirostars.com/">EnviroStars</a>.<br>
+-->
+	  <%# image_tag '5stars.png' %> 
+  
+</center>
+
+<p><p>
+<div style="font-size: 8pt;">
+<center>
+  Copyright &copy; 2009, 2010, Clean Green Revolution, LLC        
+</center>
+</div>
+
+</html>
+
+
+
+
+
+
+

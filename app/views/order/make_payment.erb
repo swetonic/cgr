@@ -1,0 +1,24 @@
+
+<% if @error.nil? %>
+  <h3>Your payment was accepted.</h3>
+  <p>
+    <b>Order #</b> <%= @order.id %>
+  <p>
+    <b>Customer:</b> <%= customer_name(@order.user) %>
+
+<%= render :partial => 'order_plus_payments', :locals => {:order => @order} %>  
+
+  <p>
+  <form>
+  <%= submit_to_remote('print_payment_receipt', 
+          'Print Payment Receipt',
+          :url => {:action => 'print_payment_receipt', :id => @order.id} ) %>
+  </form>
+<% else %>
+  <h3>Your payment was NOT accepted.</h3>
+  <%= @error %>
+<% end %>
+
+
+
+

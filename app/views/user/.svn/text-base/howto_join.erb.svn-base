@@ -1,0 +1,29 @@
+
+
+
+<h2>How to join the No PERC Revolution</h2>
+
+<h3>1. Open an account</h3>
+&nbsp; &nbsp; &nbsp; ~ Tell us about your delivery needs.
+
+<!--<h3>2. We drop off your free laundry bag and door hanger.</h3>
+&nbsp; &nbsp; &nbsp; ~ Did we tell you it's FREE?.-->
+
+<h3>2. Schedule a pickup.</h3>
+&nbsp; &nbsp; &nbsp; ~ We will email you a pickup date and time.
+
+<h3>3. Leave your bag in your designated spot.</h3>
+
+<h3>4. Your clothes are delivered to your door as soon as they are clean and fresh.</h3>
+&nbsp; &nbsp; &nbsp; ~ Call if you need rush service.
+<br><br>
+<table>
+<tr>
+  <td><h3>Existing Customers <br><%= link_to('Schedule a Pickup', 
+        :controller => 'home', :action => 'pickup') %></h3>
+    </td>
+    <td>&nbsp; &nbsp;  &nbsp;</td>
+    <td><h3>New Customers<br><%= link_to('Open an Account', 
+    url_for(:controller => 'user', :action => 'signup'))%></h3></td>
+  </tr>
+</table>

@@ -1,0 +1,6 @@
+<% order_discounts.each do |order_discount|%>
+  <tr>
+    <td colspan=2></td><td align="right"><b>Discount</b></td>
+    <td align="right"><b><%= sprintf("$%.2f", order_discount.amount) %></b></td>
+  </tr>
+<% end %>

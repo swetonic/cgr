@@ -1,0 +1,12 @@
+<h3>Default printer is currently</h3>
+<b><%= @default_printer %></b><p/>
+
+<% if @printers.size > 0 %>
+  <h3>Select a Default Printer</h3>
+  <% @printers.each do |printer| %>
+    <%= link_to(printer, :action => 'save_printer', :printer_name => printer) %><br>
+  <% end %>
+<% else %>
+  No Printers Found
+<% end %>
+

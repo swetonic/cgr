@@ -1,0 +1,31 @@
+<div id="payment_summary">
+<table>
+  <th>Payment Type</th>
+  <th>Amount (with tax)</th>
+<tr>
+<td>Cash</td>
+<td>
+<%= render :partial => 'payment_summary', :locals => {:payments => @payments[:cash]} %>
+</td>
+</tr>
+<tr>
+  <td>Credit/Debit</td>
+<td>
+<%= render :partial => 'payment_summary', :locals => {:payments => @payments[:credit]} %>
+</td>
+</tr>
+<tr>
+  <td>Check</td>
+<td>
+<%= render :partial => 'payment_summary', :locals => {:payments => @payments[:check]} %>
+</td>
+</tr>
+</table>
+</div>
+
+<table>
+  <tr><td><b>Orders Total</b></td><td align="right">$<%= sprintf("%.2f", @orders_total) %></td></tr>
+<tr><td><b>Tax Total</b></td><td align="right"> $<%= sprintf("%.2f", @tax_total) %></td></tr>
+<tr><td><b>Grand Total </b></td><td align="right"> $<%= sprintf("%.2f", @grand_total) %></td></tr>
+</table>
+

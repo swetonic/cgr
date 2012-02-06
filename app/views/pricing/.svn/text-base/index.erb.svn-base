@@ -1,0 +1,109 @@
+<h1>Clean Green Revolution Pricing</h1>
+
+
+<% #order = ['Laundry', 'Dry Cleaning', 'Sheets', 'Tablecloths', 'Blankets', 'Other', 'Laundry:'] %>
+<% #left_column = [@categories['Laundry'], @categories['Dry Cleaning']]%>
+<% #right_column = [@categories['Alterations'], @categories['Tablecloths'], 
+    #@categories['Blankets'], @categories['Other'], @categories['Sheets'], 
+    #@categories['Wash/Fold Laundry']] %>
+
+<table>
+<tr>
+<td valign="top" style="padding-right: 80px">
+<div id="pricing_table">
+  <table>
+  <th>Item</th><th>Price</th>
+  <% @prices.each do |item| %>
+    <tr>
+      <td><%= item[0] %></td><td><%= item[1] %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+</td>      
+
+</tr>
+</table>
+
+
+<h2>Bedding</h2>
+
+<table cellpadding="10">
+<tr>
+<td>
+  <h3>Blankets/Duvets</h3>
+  <div id="pricing_table">
+    <table>
+    <th>Item</th><th>Price</th>
+    <% @blankets.each do |item| %>
+      <tr>
+        <td><%= item[0] %></td><td><%= item[1] %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</td>
+<td>
+  <h3>Comforters</h3>
+  <div id="pricing_table">
+    <table>
+    <th>Item</th><th>Price</th>
+    <% @comforters.each do |item| %>
+      <tr>
+        <td><%= item[0] %></td><td><%= item[1] %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+  <h3>Alterations</h3>
+  <div id="pricing_table">
+    <table>
+    <th>Item</th><th>Price</th>
+    <% @alterations.each do |item| %>
+      <tr>
+        <td><%= item[0] %></td><td><%= item[1] %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</td>
+</tr>
+</table>
+
+<p>
+</p>
+And much more. Just call and ask!
+<p>
+
+</p>
+
+<p>
+  All prices are subject to change without notice and additional charges may apply.
+</p>
+
+However there is NEVER a charge for delivery or pickup.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

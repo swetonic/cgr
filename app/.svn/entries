@@ -1,0 +1,40 @@
+10
+
+dir
+397
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr/trunk/app
+svn+ssh://jazzbas@jazzbassist.org/home/jazzbas/svn/cgr
+
+
+
+2011-05-02T04:18:52.905774Z
+397
+jazzbas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9a0c08a6-b572-489f-922d-4569c8c2a73c
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+views
+dir
+

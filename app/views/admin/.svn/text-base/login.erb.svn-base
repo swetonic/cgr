@@ -1,0 +1,20 @@
+<% form_for :login, :url => {:action => :check_password} do |form| %>
+  
+  <h3>Enter your user name and password to log in.</h3>  
+  <% if @retry == 1 %>
+    <h3>Incorrect user name or password</h3>
+  <% end %>
+<table>
+  <tr>
+    <td>User Name</td>
+    <td><%= form.text_field(:user_name, :size => '30', :maxlength => '64')%></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><%= form.password_field(:password, :size => '30', :maxlength => '64')%></td>
+  </tr>
+  <tr><td><%= submit_tag('Login') %></td></tr>
+
+</table>
+
+<% end %>

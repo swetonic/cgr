@@ -1,0 +1,61 @@
+<h1>View Order</h1>
+<% if @order.nil? %>
+  Order <%= params[:id] %> not found.
+<% else %>
+  <table>
+    <tr><td><b>Customer</b></td><td> <%= customer_name(@user) %>
+   (<%= link_to('Order History', :controller => 'order', 
+                    :action => 'order_history', :id => @order.user.id)%>)
+    </tr>
+    <tr><td><b>Order #</b></td><td> <%= link_to(@order.id, :action => 'edit', :id => @order.id) %> </td></tr>
+  <tr><td><b>Order Date</b></td><td> <%= date_format(@order.created_on) %></td></tr>
+  <tr><td><b>Date Needed</b></td><td> <%= @order.date_needed %></td></tr>
+  <tr><td><b>Order Taker</b></td><td> <%= @order.admin.name unless @order.admin.nil? %></td></tr>
+  <tr><td><b><%= link_to('Edit Order', :action => 'edit', :id => @order.id) %></b></td></tr>
+  <tr><td>
+      <form>              
+      <%= submit_to_remote('Print Receipt', 'Print Receipt', 
+                :url => {:id => @order.id, :action => 'print_receipt'})%>              
+      </form>
+  </td></tr>
+  </table>
+
+  <br><br>
+
+<%= render :partial => 'order_plus_payments', :locals => {:order => @order} %>
+
+<p>
+
+  <% if @order.paid? %>    
+    <h3>This order has been paid</h3>
+    Payment date: <%= order_paid_on(@order) %>
+  <% else %>
+    <fieldset>
+      <legend>Discount</legend>
+      <%= form_tag({:action => 'apply_discount', :id => @order.id}) %>
+      <table>
+        <tr>
+          <td><%= text_field_tag('coupon_amount') %></td>
+          <td>Coupon (enter dollar amount)</td>  
+        </tr>
+        <tr>
+        <td><%= select_tag('discount', 
+                options_for_select([['0', 1], ['10%', 0.9], ['15%', 0.85], 
+                    ['20%', 0.8], ['25%', 0.75],
+                    ['30%', 0.7], ['40%', 0.6], ['50%', 0.5], ['100%', 0.0]
+                          ])) %>
+        </td>
+
+        <td><%= submit_tag('Apply Discount') %></td>
+        </tr>
+      </table>
+      </form>
+    </fieldset>
+    <p>
+    
+    <%= render :partial => 'make_payment_form', 
+        :locals => {:tax => @tax, :order => @order} %>
+    
+    <% end %>
+<% end %>
+  
